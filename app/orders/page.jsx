@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import OrderList from "./OrderList";
+import Loading from "../loading";
 
 export default function Order() {
   return (
@@ -10,7 +12,9 @@ export default function Order() {
             </div>
         </nav>
 
-        <OrderList />
+        <Suspense fallback={<Loading />}>
+          <OrderList />
+        </Suspense>
     </main>
   )
 }

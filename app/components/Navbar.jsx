@@ -14,7 +14,7 @@ export default function Navbar() {
         />
         <h1>Lawrence University Food Pantry</h1>
         <Link href="/">Home</Link>
-        <Link href="/form">Form</Link>
+        <Link href="/orders/create">Form</Link>
         </nav>
   )
 }
