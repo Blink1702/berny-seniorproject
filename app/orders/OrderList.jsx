@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 async function getOrders() {
-    const res = await fetch('',{
+    const res = await fetch('http://localhost:8085/orders',{
       next: {
         revalidate : 0 //0 = no cache
       }
@@ -17,9 +17,9 @@ export default async function OrderList() {
         {Order.map((Order) => (
           <div key={Order.id} className="card my-5">
             <Link href={`/tickets/${order.id}`}>
-              <h3>{Order.title}</h3>
-              <p>{Order.body.slice(0,200)}...</p>
-              <div className={`pill ${Order.priority}`}>
+              <h3>{Order.user}</h3>
+              <p>{Order.item.slice(0,200)}...</p>
+              <div className={`pill ${Order.fulfilled}`}>
               </div>
             </Link>
           </div>  
