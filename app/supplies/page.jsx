@@ -3,7 +3,7 @@ import Link from "next/link"
 async function getSupplies() {
     const res = await fetch('http://localhost:8085/stock',{
       next: {
-        revalidate : 0 //0 = no cache
+        revalidate : 60
       }
     })
     
