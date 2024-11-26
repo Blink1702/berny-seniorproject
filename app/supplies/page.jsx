@@ -11,7 +11,7 @@ async function getSupplies() {
 }
 
 export default async function StockList() {
-    const Stock = await getStock()
+    const Stock = await getSupplies()
   return (
     <>
         {Stock.map((stock) => (
