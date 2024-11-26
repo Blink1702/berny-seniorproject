@@ -6,9 +6,9 @@ import { useState } from "react"
 export default function CreateForm() {
     const router = useRouter()
     
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
-    const [priority, setPriority] = useState('low')
+    const [items, setItems] = useState('')
+    const [user, setUser] = useState('')
+    const [fulfilled, setFulfilled] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
     const handleSubmit = async (e) => {
@@ -16,10 +16,10 @@ export default function CreateForm() {
         setIsLoading(true)
 
         const order = {
-            title, body, priority, user_email: 'johndoe@gmail.dev'
+            items
         }
 
-        const res = await fetch('', {
+        const res = await fetch('http://localhost:3083/orders', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
@@ -34,14 +34,27 @@ export default function CreateForm() {
   return (
     <form onSubmit={handleSubmit} className="w-1/2">
         <label>
-        <span>Title:</span>
+        <span>Items:</span>
         <input
           required 
           type="text"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setItems(e.target.value)}
           value={title}
         />
       </label>
+      <button 
+        className="btn-primary" 
+        disabled={isLoading}
+      >
+      {isLoading && <span>Submitting...</span>}
+      {!isLoading && <span>Submit Order</span>}
+    </button>
+    </form>
+  )
+}
+
+
+/*
       <label>
         <span>Body:</span>
         <textarea
@@ -61,18 +74,8 @@ export default function CreateForm() {
           <option value="high">High Priority</option>
         </select>
       </label>
-      <button 
-        className="btn-primary" 
-        disabled={isLoading}
-      >
-      {isLoading && <span>Submitting...</span>}
-      {!isLoading && <span>Submit Order</span>}
-    </button>
-    </form>
-  )
-}
 
-/*
+
 <div>
 <h2 className="flex justify-center form label">Place Pantry Order:</h2>
 <form className="form">
