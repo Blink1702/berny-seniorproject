@@ -39,7 +39,7 @@ export default function CreateForm() {
           required 
           type="text"
           onChange={(e) => setItems(e.target.value)}
-          value={title}
+          value={items}
         />
       </label>
       <button 
