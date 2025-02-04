@@ -1,6 +1,5 @@
 "use client"
-
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function CreateForm() {
@@ -39,7 +38,7 @@ export default function CreateForm() {
           required 
           type="text"
           onChange={(e) => setItems(e.target.value)}
-          value={title}
+          value={items}
         />
       </label>
       <button 
