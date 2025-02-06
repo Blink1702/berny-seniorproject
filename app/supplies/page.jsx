@@ -25,7 +25,7 @@ export default async function StockList() {
             </Link>
           </div>  
         ))}
-        {Order.length === 0 && (
+        {Stock.length === 0 && (
             <p className="text-center">There are no supplies!</p>
         )}
     </>

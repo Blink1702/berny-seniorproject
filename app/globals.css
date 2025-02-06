@@ -123,13 +123,13 @@ form button {
     inline-block 
     text-xs font-semibold;
 }
-.pill.high {
+.pill.Not {
   @apply bg-red-300 text-red-600;
 }
 .pill.medium {
   @apply bg-blue-300 text-blue-600;
 }
-.pill.low {
+.pill.Order {
   @apply bg-emerald-300 text-emerald-600;
 }
 .card .pill {

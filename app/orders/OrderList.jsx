@@ -11,20 +11,20 @@ async function getOrders() {
 }
 
 export default async function OrderList() {
-    const Order = await getOrders()
+    const orders = await getOrders()
   return (
     <>
-        {Order.map((Order) => (
-          <div key={Order.id} className="card my-5">
-            <Link href={`/tickets/${order.id}`}>
-              <h3>{Order.user}</h3>
-              <p>{Order.item.slice(0,200)}...</p>
-              <div className={`pill ${Order.fulfilled}`}>
+        {orders.map((order) => (
+          <div key={order.id} className="card my-5">
+            <Link href={`/orders/${order.orderid}`}>
+              <h3>{order.user}</h3>
+              <p>{order.item.slice(0,200)}...</p>
+              <div className={`pill ${order.fulfilled}`}>
               </div>
             </Link>
           </div>  
         ))}
-        {Order.length === 0 && (
+        {orders.length === 0 && (
             <p className="text-center">There are no open orders!</p>
         )}
     </>

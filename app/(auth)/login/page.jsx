@@ -6,28 +6,33 @@ import { useRouter } from 'next/navigation'
 // components
 import AuthForm from "../AuthForm"
 
+var token
+
 export default function Login() {
   const router = useRouter()
   const [error, setError] = useState('')
 
-  const handleSubmit = async (e, email, password) => {
+  const handleSubmit = async (e, username, password) => {
     e.preventDefault()
     setError('')
 
     const user = {
-        email, password
+        username, password
     }
 
-    const res = await fetch('http://localhost:3083/users/login', {
+    const res = await fetch('http://localhost:8085/users/login', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(user)
     })
+    const userres = await res.json()
+    token = userres.token
+        
     if (error) {
       setError(error.message)
     }
     if (!error) {
-      router.push('/')
+      router.push(`/`)
     } 
 
   }
@@ -43,4 +48,8 @@ export default function Login() {
       )}
     </main>
   )
+}
+
+export function getToken(){
+  return(token)
 }

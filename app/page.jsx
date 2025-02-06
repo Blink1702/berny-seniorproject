@@ -8,7 +8,7 @@ export default function Home() {
       <p>Welcome to the Lawrence University Food Pantry!</p>
 
       <div className="flex justify-center my-8">
-        <Link href="/form">
+        <Link href="/orders/create">
           <button className="btn-primary">Submit a form</button>
         </Link>
       </div>

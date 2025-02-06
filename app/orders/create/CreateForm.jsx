@@ -1,11 +1,12 @@
 "use client"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { getToken } from "../../(auth)/login/page"
 
 export default function CreateForm() {
     const router = useRouter()
     
-    const [items, setItems] = useState('')
+    const [item, setItem] = useState('')
     const [user, setUser] = useState('')
     const [fulfilled, setFulfilled] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -15,12 +16,14 @@ export default function CreateForm() {
         setIsLoading(true)
 
         const order = {
-            items
+            item
         }
 
-        const res = await fetch('http://localhost:3083/orders', {
+        const token = getToken()
+
+        const res = await fetch('http://localhost:8085/orders', {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {"Authorization": `Bearer ${token}`,"Content-Type": "application/json"},
             body: JSON.stringify(order)
         })
 
@@ -37,8 +40,8 @@ export default function CreateForm() {
         <input
           required 
           type="text"
-          onChange={(e) => setItems(e.target.value)}
-          value={items}
+          onChange={(e) => setItem(e.target.value)}
+          value={item}
         />
       </label>
       <button 

@@ -17,7 +17,7 @@ export default function Signup() {
         email, password
     }
 
-    const res = await fetch('http://localhost:3083/users', {
+    const res = await fetch('http://localhost:8085/users', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(user)

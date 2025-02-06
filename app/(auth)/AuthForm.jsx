@@ -3,17 +3,17 @@
 import { useState } from 'react'
 
 export default function AuthForm({ handleSubmit }) {
-  const [email, setEmail] = useState('')
+  const [username, setUser] = useState('')
   const [password, setPassword] = useState('')
 
   return (
-    <form onSubmit={(e) => handleSubmit(e, email, password)}>
+    <form onSubmit={(e) => handleSubmit(e, username, password)}>
       <label>
-        <span>Email:</span>
+        <span>Username:</span>
         <input 
-          type="email" 
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          type="username" 
+          onChange={(e) => setUser(e.target.value)}
+          value={username}
           required 
         />
       </label>
