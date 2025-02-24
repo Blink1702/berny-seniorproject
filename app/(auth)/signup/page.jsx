@@ -26,7 +26,7 @@ export default function Signup() {
         setError(error.message)
       }
       if (!error) {
-        router.push('/')
+        router.push('/signup/addProfile')
       }
     
   }
