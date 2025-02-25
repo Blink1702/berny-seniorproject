@@ -9,15 +9,15 @@ export default function Signup() {
   const router = useRouter()
   const [error, setError] = useState('')
 
-  const handleSubmit = async (e, email, password) => {
+  const handleSubmit = async (e, username, password) => {
     e.preventDefault()
     setError('')
 
     const user = {
-        email, password
+        username, password
     }
 
-    const res = await fetch('http://localhost:8085/users', {
+    const res = await fetch('http://localhost:8085/users/signup', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(user)
