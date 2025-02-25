@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import Link from "next/link"
 
 export const dynamicParams = true
 
@@ -27,7 +28,7 @@ async function getOrder(id) {
 
 export default async function OrderDetails({params}) {
     const order = await getOrder(params.id)
-    var x = `Not`
+    var x = `Not Fullfilled`
     if(order.fulfilled==true){
         x = `Order`
     }
@@ -37,11 +38,13 @@ export default async function OrderDetails({params}) {
             <h2>Order Details</h2>
         </nav>
         <div className="card">
+        <Link href={`/profile/${order.user}`}>
             <h3>{order.user}</h3>
+        </Link>
             <small>Date created: {order.date}</small>
             <p>{order.item}</p>
             
-            <div className={`pill ${x}`}>
+            <div className={`pill ${order.fulfilled}`}>
                 {x} Fulfilled
             </div>
         </div>

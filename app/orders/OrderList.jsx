@@ -12,6 +12,7 @@ async function getOrders() {
 
 export default async function OrderList() {
     const orders = await getOrders()
+
   return (
     <>
         {orders.map((order) => (

@@ -8,7 +8,7 @@ export default function Order() {
         <nav>
             <div>
                 <h2>Orders</h2>
-                <p><small>Currently open orders</small></p>
+                <p><small>All Orders!</small></p>
             </div>
         </nav>
 
