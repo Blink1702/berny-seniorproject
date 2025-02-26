@@ -18,9 +18,10 @@ export default async function OrderList() {
         {orders.map((order) => (
           <div key={order.id} className="card my-5">
             <Link href={`/orders/${order.orderid}`}>
-              <h3>{order.user}</h3>
+              <h3>{order.date}</h3>
               <p>{order.item.slice(0,200)}...</p>
               <div className={`pill ${order.fulfilled}`}>
+                 Fullfilled
               </div>
             </Link>
           </div>  

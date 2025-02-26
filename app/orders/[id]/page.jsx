@@ -39,13 +39,13 @@ export default async function OrderDetails({params}) {
         </nav>
         <div className="card">
         <Link href={`/profile/${order.user}`}>
-            <h3>{order.user}</h3>
+            <h3>Date created: {order.date}</h3>
         </Link>
-            <small>Date created: {order.date}</small>
+            <small>{order.orderid}</small>
             <p>{order.item}</p>
             
             <div className={`pill ${order.fulfilled}`}>
-                {x} Fulfilled
+                {x}
             </div>
         </div>
     </main>
