@@ -12,7 +12,8 @@ async function getOrders() {
 
 export default async function OrderList() {
     const orders = await getOrders()
-
+    var x = ""
+    
   return (
     <>
         {orders.map((order) => (
@@ -21,7 +22,7 @@ export default async function OrderList() {
               <h3>{order.date}</h3>
               <p>{order.item.slice(0,200)}...</p>
               <div className={`pill ${order.fulfilled}`}>
-                 Fullfilled
+                {order.fulfilled ? null : "Not"} Fullfilled
               </div>
             </Link>
           </div>  
