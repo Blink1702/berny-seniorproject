@@ -22,7 +22,7 @@ export default async function OrderList() {
               <h3>{order.date.slice(order,10)}</h3>
               <p>{order.item.slice(0,200)}...</p>
               <div className={`pill ${order.fulfilled}`}>
-                {order.fulfilled ? null : "Not"} Fullfilled
+                {order.fulfilled ? null : "Not"} Fulfilled
               </div>
             </Link>
           </div>  

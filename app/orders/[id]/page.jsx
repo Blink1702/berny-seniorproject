@@ -41,7 +41,7 @@ export default async function OrderDetails({params}) {
             <p>{order.item}</p>
             
             <div className={`pill ${order.fulfilled}`}>
-                {order.fulfilled ? null : "Not"} Fullfilled
+                {order.fulfilled ? null : "Not"} Fulfilled
             </div>
         </div>
     </main>
