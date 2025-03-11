@@ -28,10 +28,6 @@ async function getOrder(id) {
 
 export default async function OrderDetails({params}) {
     const order = await getOrder(params.id)
-    var x = `Not Fullfilled`
-    if(order.fulfilled==true){
-        x = `Fullfilled`
-    }
   return (
     <main>
         <nav>
@@ -45,7 +41,7 @@ export default async function OrderDetails({params}) {
             <p>{order.item}</p>
             
             <div className={`pill ${order.fulfilled}`}>
-                {x}
+                {order.fulfilled ? null : "Not"} Fullfilled
             </div>
         </div>
     </main>
