@@ -30,7 +30,7 @@ export default async function OrderDetails({params}) {
     const order = await getOrder(params.id)
     var x = `Not Fullfilled`
     if(order.fulfilled==true){
-        x = `Order`
+        x = `Fullfilled`
     }
   return (
     <main>

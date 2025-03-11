@@ -12,13 +12,14 @@ async function getOrders() {
 
 export default async function OrderList() {
     const orders = await getOrders()
+    
 
   return (
     <>
         {orders.map((order) => (
           <div key={order.id} className="card my-5">
             <Link href={`/orders/${order.orderid}`}>
-              <h3>{order.date}</h3>
+              <h3>{order.date.slice(order,10)}</h3>
               <p>{order.item.slice(0,200)}...</p>
               <div className={`pill ${order.fulfilled}`}>
                  Fullfilled
