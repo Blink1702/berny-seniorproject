@@ -12,13 +12,8 @@ async function getOrders() {
 
 export default async function OrderList() {
     const orders = await getOrders()
-<<<<<<< HEAD
     
 
-=======
-    var x = ""
-    
->>>>>>> dde6dfc59b5820fafd7b0d2dde8d6faedc39e06a
   return (
     <>
         {orders.map((order) => (
